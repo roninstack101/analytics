@@ -1,100 +1,79 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home, Table, CreditCard, User, LogIn, UserPlus } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  Home,
+  Table,
+  CreditCard,
+  User,
+  LogIn,
+  UserPlus,
+  Menu,
+  X,
+} from "lucide-react";
 
 const Sidebar = () => {
-    const location = useLocation();
-    const currentPath = location.pathname;
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const [open, setOpen] = useState(false);
 
-    const menuItems = [
-        { name: 'Dashboard', icon: Home, path: '/' },
-        { name: 'Tables', icon: Table, path: '/tables' },
-        { name: 'Billing', icon: CreditCard, path: '/billing' },
-        { name: 'Profile', icon: User, path: '/profile' },
-        { name: 'Sign In', icon: LogIn, path: '/signin' },
-        { name: 'Sign Up', icon: UserPlus, path: '/signup' },
-    ];
+  const menuItems = [
+    { name: "Dashboard", icon: Home, path: "/" },
+    { name: "Tables", icon: Table, path: "/tables" },
+    { name: "Billing", icon: CreditCard, path: "/billing" },
+    { name: "Profile", icon: User, path: "/profile" },
+    { name: "Sign In", icon: LogIn, path: "/signin" },
+    { name: "Sign Up", icon: UserPlus, path: "/signup" },
+  ];
 
-    const styles = {
-        sidebar: {
-            position: 'fixed',
-            top: '10px',
-            left: '20px',
-            width: '220px',
-            height: '88vh',
-            backgroundColor: 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(20px)',
-            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            color: '#fff',
-            padding: '1.5rem',
-            borderRadius: '1rem',
-            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.1)',
-            fontFamily: 'Poppins, sans-serif',
-            display: 'flex',
-            flexDirection: 'column',
-        },
-        brand: {
-            fontSize: 'clamp(1.4rem, 2vw, 2rem)',
-            fontWeight: 'bold',
-            textAlign: 'center',
-            
-            letterSpacing: '1px',
-            margin: '0 0 2rem 0'
-        },
-        list: {
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-        },
-        listItem: (isActive) => ({
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            padding: '12px 16px',
-            borderRadius: '8px',
-            backgroundColor: isActive ? '#1A2B4F' : 'transparent',
-            color: isActive ? '#4FC3F7' : '#ccc',
-            fontWeight: isActive ? '600' : '500',
-            fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            transition: 'background-color 0.3s, color 0.3s',
-        }),
-        icon: {
-            width: '20px',
-            height: '20px',
-        },
-    };
+  return (
+    <>
+      {/* Mobile Toggle Button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="md:hidden fixed top-5 left-5 z-50 p-2 bg-white/10 backdrop-blur rounded-md text-white"
+      >
+        {open ? <X /> : <Menu />}
+      </button>
 
-    return (
-        <aside style={styles.sidebar}>
-            <h2 style={styles.brand}>SALES BOARD</h2>
-            <ul style={styles.list}>
-                {menuItems.map(({ name, icon: Icon, path }, index) => (
-                    <li key={index}>
-                        <Link
-                            to={path}
-                            style={styles.listItem(currentPath === path)}
-                            onMouseOver={(e) => {
-                                if (currentPath !== path) e.currentTarget.style.backgroundColor = '#1A2B4F';
-                            }}
-                            onMouseOut={(e) => {
-                                if (currentPath !== path) e.currentTarget.style.backgroundColor = 'transparent';
-                            }}
-                        >
-                            <Icon style={styles.icon} />
-                            <span>{name}</span>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </aside>
-    );
+      {/* Sidebar */}
+      <aside
+        className={`
+    fixed top-5 left-5 z-40 w-[230px] max-w-[90vw] h-[calc(100vh-40px)]
+    bg-white/5 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.1)]
+    border border-white/10 text-white p-6 rounded-2xl font-[Poppins] flex flex-col
+    overflow-y-auto scrollbar-thin scrollbar-thumb-white/20
+    transition-transform duration-300 ease-in-out
+    ${open ? "translate-x-0" : "-translate-x-full"}
+    md:translate-x-0 md:flex
+  `}
+      >
+        <h2 className="text-center font-bold tracking-wide mb-5 text-[clamp(1rem,2vw,2rem)]">
+          BOARD
+        </h2>
+        <ul className="flex flex-col gap-2">
+          {menuItems.map(({ name, icon: Icon, path }, index) => (
+            <li key={index}>
+              <Link
+                to={path}
+                onClick={() => setOpen(false)}
+                className={`
+                  flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-300
+                  ${
+                    currentPath === path
+                      ? "bg-purple-700 text-white font-semibold"
+                      : "text-gray-400 hover:bg-purple-700 hover:text-white font-medium"
+                  }
+                `}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-[clamp(0.9rem,2vw,1rem)]">{name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </>
+  );
 };
 
 export default Sidebar;
