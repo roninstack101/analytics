@@ -37,10 +37,9 @@ const SignUp = () => (
 function App() {
   return (
     <Router>
-      <div className="flex min-h-screen">
+      <div className="flex">
         <Sidebar />
-
-        <div className="flex-1 md:ml-[240px] p-4">
+        <div className="flex-1 md:ml-[250px] p-4">
           <Routes>
             <Route path="/" element={<Graph />} />
             <Route path="/tables" element={<Tables />} />
