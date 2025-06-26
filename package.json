@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@coreui/coreui": "^5.4.0",
+    "@coreui/react": "^5.7.0",
+    "@hugeicons/core-free-icons": "^1.0.14",
+    "@hugeicons/react": "^1.0.5",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -37,6 +41,9 @@
     ]
   },
   "devDependencies": {
-    "daisyui": "^5.0.43"
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.0.43",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   }
 }
