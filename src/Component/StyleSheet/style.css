@@ -1,0 +1,19 @@
+/* ApexCharts menu styling */
+.apexcharts-menu {
+  background-color: #ffffff !important; /* menu bg white */
+  border: 1px solid #ddd !important;
+}
+
+.apexcharts-menu-item {
+  color: #000000 !important;  /* menu text black */
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.apexcharts-menu-item:hover {
+  background-color: #f3f4f6 !important; /* light gray hover */
+  color: #000000 !important; /* keep text black on hover */
+}
+.apexcharts-menu-icon svg {
+  fill: #ffffff !important;
+}
+
