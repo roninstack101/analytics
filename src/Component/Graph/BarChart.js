@@ -21,7 +21,7 @@ const BarChart = ({ categories, values, filter }) => {
 
   const series = [{ name: "Sales", data: values }];
 
-  return <Chart options={options} series={series} type="bar" height={300} />;
+  return <Chart options={options} series={series} type="bar"  height={300} width='100%' />;
 };
 
 export default BarChart;
