@@ -1,6 +1,6 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Home03Icon, BarChartHorizontalIcon, InvoiceIcon } from "@hugeicons/core-free-icons";
-import "./resuable/stylesheet/style.css";
+
 
 // const styles = {
 //   baseContainer: {

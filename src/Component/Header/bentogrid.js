@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BarChart from "../Graph/BarChart";
-import "./resuable/stylesheet/style.css";
 import AreaChart from "../Graph/AreaChart";
 import LineChart from "../Graph/LineChart";
 import PieChart from "../Graph/PieChart";
@@ -38,19 +37,19 @@ export default function Grid(params) {
   };
 
   return (
-    <div className="ml-4 md:ml-[16.5rem] xl:ml-[19rem] mt-[4rem] mr-4 ">
+    <div className="ml-4 md:ml-[16.5rem] xl:ml-[19rem] mt-[1rem] mr-4 ">
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-6">
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] flex items-center justify-between p-4 rounded-2xl">
-          kbkmfbkfmkf
+        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] flex items-center justify-between p-4 rounded-2xl">
+          Summary 1
         </div>
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
-          kbkmfbkfmkf
+        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+          Summary 2
         </div>
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
-          kbkmfbkfmkf
+        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+          Summary 3
         </div>
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
-          kbkmfbkfmkf
+        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+          Summary 4
         </div>
       </section>
 
