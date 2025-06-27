@@ -31,11 +31,10 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
           transition-all duration-300 ease-in-out
           ${open ? "translate-x-[20px]" : "-translate-x-full"}
           md:translate-x-0 md:left-5
-              ${
-                darkMode
-                  ? "bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-                  : "  shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] backdrop-blur-xl"
-              }
+              ${darkMode
+            ? "bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] backdrop-blur-xl"
+          }
         `}
       >
         <h2
@@ -55,8 +54,8 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
                 ? "bg-purple-700 text-white font-semibold"
                 : "text-gray-400 hover:bg-purple-700 hover:text-white font-medium"
               : isActive
-              ? "bg-[rgba(0,103,216,0.8)] text-white font-semibold"
-              : "text-[#1A237E] hover:bg-[rgba(140,206,247,0.47)] font-medium";
+                ? "bg-[rgba(0,103,216,0.8)] text-white font-semibold"
+                : "text-[#1A237E] hover:bg-[rgba(140,206,247,0.47)] font-medium";
 
             return (
               <li key={index}>

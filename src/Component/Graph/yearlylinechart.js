@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import '../StyleSheet/style.css'
 
 const YearlyLineChart = () => {
   const series = [

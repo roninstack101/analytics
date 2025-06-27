@@ -8,7 +8,17 @@ const BarChart = ({ categories, values, filter }) => {
       id: "bar-chart",
       background: "transparent",
       foreColor: "#ffffff",
-      toolbar: { tools: { download: true } },
+      toolbar: {
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        }
+      },
     },
     plotOptions: { bar: { borderRadius: 6, columnWidth: "55%" } },
     xaxis: { categories },
@@ -21,7 +31,7 @@ const BarChart = ({ categories, values, filter }) => {
 
   const series = [{ name: "Sales", data: values }];
 
-  return <Chart options={options} series={series} type="bar"  height={300} width='100%' />;
+  return <Chart options={options} series={series} type="bar" height={300} width='100%' />;
 };
 
 export default BarChart;
