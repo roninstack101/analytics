@@ -44,10 +44,10 @@ const YearlyLineChart = () => {
   };
 
   const chartBoxStyle = {
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
-    backdropFilter: "blur(10px)",
-    WebkitBackdropFilter: "blur(10px)",
-    border: "1px solid rgba(255,255,255,0.1)",
+    // backgroundColor: "rgba(255, 255, 255, 0.05)",
+    // backdropFilter: "blur(10px)",
+    // WebkitBackdropFilter: "blur(10px)",
+    // border: "1px solid rgba(255,255,255,0.1)",
     color: "#fff",
     padding: "1.5rem",
     borderRadius: "1rem",
@@ -55,7 +55,7 @@ const YearlyLineChart = () => {
 
   return (
     <div className="w-full mt-10" style={chartBoxStyle}>
-      <Chart options={options} series={series} type="line" height={350} />
+      <Chart options={options} series={series} type="line" height={'100%'} width={'100%'} />
     </div>
   );
 };
