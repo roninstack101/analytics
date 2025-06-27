@@ -1,11 +1,25 @@
-// components/Graph/PieChart.jsx
 import React from "react";
 import Chart from "react-apexcharts";
+import '../StyleSheet/style.css'
 
 const PieChart = ({ series, filter }) => {
   const options = {
     labels: ["Product A", "Product B", "Product C", "Product D"],
-    chart: { foreColor: "#ffffff" },
+    chart: {
+      foreColor: "#ffffff",
+      toolbar: {
+        show: true,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        },
+      },
+    },
     title: { text: `Pie Chart (${filter})`, align: "center" },
     tooltip: { theme: "dark" },
   };
