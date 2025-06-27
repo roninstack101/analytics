@@ -51,7 +51,7 @@ export default function Grid(params) {
              </div>
         </section>
 
-         <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6 mb-6">
+         <section className="grid grid-cols-1  xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6 mb-6">
              <div className=' bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10   p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] '>
                  <PieChart series={selected.pie} filter={filter} />
              </div>

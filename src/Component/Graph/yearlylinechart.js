@@ -54,9 +54,9 @@ const YearlyLineChart = () => {
   };
 
   return (
-    <div className="w-full mt-10" style={chartBoxStyle}>
-      <Chart options={options} series={series} type="line" height={'100%'} width={'100%'} />
-    </div>
+    // <div className="w-full mt-10" style={chartBoxStyle}>
+      <Chart options={options} series={series} type="line" height={'300'} width={'100%'} />
+    // </div>
   );
 };
 
