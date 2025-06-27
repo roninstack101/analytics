@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import BarChart from '../Graph/BarChart';
-import './resuable/stylesheet/style.css'
+
 import AreaChart from '../Graph/AreaChart';
 import LineChart from '../Graph/LineChart';
 import PieChart from '../Graph/PieChart';
