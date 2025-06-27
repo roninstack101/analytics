@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import BarChart from '../Graph/BarChart';
 import './resuable/stylesheet/style.css'

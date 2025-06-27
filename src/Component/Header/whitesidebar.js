@@ -66,6 +66,7 @@ const WhiteSideBar = () => {
     shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] text-[#1A237E] fixed bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 xl:max-w-[264px] transition-all duration-300 max-w-[230px] w-full"
     >
       <h3 className=" text-center font-bold tracking-wide text-[clamp(1rem,2vw,2rem)] mb-6 mt-6">Data analytics</h3>
+
       {/* <hr /> */}
       <div className="flex flex-col justify-start w-full">
         <ul className="list-none flex flex-col gap-[6px] pl-0">
@@ -127,3 +128,4 @@ const WhiteSideBar = () => {
 };
 
 export default WhiteSideBar;
+
