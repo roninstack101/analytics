@@ -43,14 +43,7 @@ function App() {
 
       <div className="flex">
         <Sidebar />
-        <div className="flex-1 md:ml-[250px] p-4">
-//       <div >
-//         {/* <WhiteSideBar/> */}
-
-//         {/* <Sidebar/> */}
-//         <Whiteheader/>
-//         {/* <div className="flex-1 md:ml-[240px] p-4"> */}
-
+         <div className="flex-1 md:ml-[0px] p-4">
           <Routes>
             <Route path="/" element={<Grid/>} />
             <Route path="/tables" element={<Tables />} />
@@ -60,7 +53,8 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
-      {/* </div> */}
-    </Router>)
+      </div>
+    </Router>
+    )
 }
 export default App;
