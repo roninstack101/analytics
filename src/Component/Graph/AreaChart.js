@@ -1,6 +1,6 @@
-// components/Graph/AreaChart.jsx
 import React from "react";
 import Chart from "react-apexcharts";
+import '../StyleSheet/style.css'
 
 const AreaChart = ({ categories, values, filter }) => {
   const options = {

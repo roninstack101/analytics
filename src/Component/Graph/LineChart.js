@@ -1,6 +1,6 @@
-// components/Graph/LineChart.jsx
 import React from "react";
 import Chart from "react-apexcharts";
+import '../StyleSheet/style.css'
 
 const LineChart = ({ categories, values, filter }) => {
   const options = {
@@ -8,7 +8,17 @@ const LineChart = ({ categories, values, filter }) => {
       id: "line-chart",
       background: "transparent",
       foreColor: "#ffffff",
-      toolbar: { tools: { download: true } },
+      toolbar: {
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        }
+      },
     },
     xaxis: { categories },
     stroke: { curve: "smooth" },
@@ -20,7 +30,7 @@ const LineChart = ({ categories, values, filter }) => {
 
   const series = [{ name: "Sales", data: values }];
 
-  return <Chart options={options} series={series} type="line"  height={300} width='100%' />;
+  return <Chart options={options} series={series} type="line" height={300} width='100%' />;
 };
 
 export default LineChart;
