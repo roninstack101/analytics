@@ -10,7 +10,7 @@ const PieChart = ({ series, filter }) => {
     tooltip: { theme: "dark" },
   };
 
-  return <Chart options={options} series={series} type="pie" height={300} />;
+  return <Chart options={options} series={series} type="pie"  height={300} width='100%' />;
 };
 
 export default PieChart;
