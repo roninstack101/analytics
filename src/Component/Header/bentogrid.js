@@ -5,7 +5,7 @@ import LineChart from "../Graph/LineChart";
 import PieChart from "../Graph/PieChart";
 import YearlyLineChart from "../Graph/yearlylinechart";
 
-export default function Grid(params) {
+export default function Grid({ params, darkMode }) {
   const [filter, setFilter] = useState("month");
 
   const dataMap = {
@@ -38,26 +38,64 @@ export default function Grid(params) {
 
   return (
     <div className="ml-4 md:ml-[16.5rem] xl:ml-[19rem] mt-[1rem] mr-4 ">
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-6">
-        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] flex items-center justify-between p-4 rounded-2xl">
+      {/* <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-6">
+        <div className={` 
+         flex items-center justify-between p-4 rounded-2xl border border-white/10
+         ${darkMode
+          ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+          : "text-black bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+        }`}>
           Summary 1
         </div>
-        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+        <div className={` 
+         flex items-center justify-between p-4 rounded-2xl border border-white/10
+         ${darkMode
+          ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+          : "text-black bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+        }`}>
           Summary 2
         </div>
-        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+        <div className={` 
+         flex items-center justify-between p-4 rounded-2xl border border-white/10
+         ${darkMode
+          ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+          : "text-black bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+        }`}>
           Summary 3
         </div>
-        <div className="text-white bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  flex items-center justify-between p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]">
+        <div className={` 
+         flex items-center justify-between p-4 rounded-2xl border border-white/10
+         ${darkMode
+          ? "text-white font-bold bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+          : "text-[rgba(0,103,216,0.8)] font-bold bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+        }`}>
           Summary 4
         </div>
+      </section> */}
+
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-6">
+        {["Summary 1", "Summary 2", "Summary 3", "Summary 4"].map((label, index) => (
+          <div
+            key={index}
+            className={`
+        flex items-center justify-between p-4 rounded-2xl border border-white/10 backdrop-blur-xl
+        ${darkMode
+                ? "text-white  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+                : "text-[rgba(0,103,216,0.8)] font-[500]  bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+              }
+      `}
+          >
+            {label}
+          </div>
+        ))}
       </section>
 
-     <section className='grid grid-cols-1 mb-6'>
-            <div className=' bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] '>
-                <YearlyLineChart/>
-            </div>
-        </section>
+
+      <section className='grid grid-cols-1 mb-6'>
+        <div className=' bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] '>
+          <YearlyLineChart />
+        </div>
+      </section>
 
       <section className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6  mb-6">
         <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] ">

@@ -57,7 +57,7 @@ function App() {
             setDarkMode={setDarkMode}
           />
           <Routes>
-            <Route path="/" element={<Grid />} />
+            <Route path="/" element={<Grid darkMode={darkMode} />} />
             <Route path="/tables" element={<Tables />} />
             <Route path="/billing" element={<Billing />} />
             <Route path="/profile" element={<Profile />} />
