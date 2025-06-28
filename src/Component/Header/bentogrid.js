@@ -80,8 +80,8 @@ export default function Grid({ params, darkMode }) {
             className={`
         flex items-center justify-between p-4 rounded-2xl border border-white/10 backdrop-blur-xl
         ${darkMode
-                ? "text-white  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-                : "text-[rgba(0,103,216,0.8)] font-[500]  bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)]"
+                ? "text-white font-[500]  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+                : "text-[rgba(0,103,216,0.8)] font-[500]  bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
               }
       `}
           >
@@ -92,20 +92,32 @@ export default function Grid({ params, darkMode }) {
 
 
       <section className='grid grid-cols-1 mb-6'>
-        <div className=' bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10 p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] '>
+        <div className={` border border-white/10 p-4 rounded-2xl 
+          ${darkMode
+            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}>
           <YearlyLineChart />
         </div>
       </section>
 
       <section className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6  mb-6">
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] ">
+        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${darkMode
+            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}>
           <BarChart
             categories={selected.categories}
             values={selected.values}
             filter={filter}
           />
         </div>
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10   p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] ">
+        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${darkMode
+            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}>
           <LineChart
             categories={selected.categories}
             values={selected.values}
@@ -115,10 +127,18 @@ export default function Grid({ params, darkMode }) {
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6 mb-6">
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10   p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] ">
+        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${darkMode
+            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}>
           <PieChart series={selected.pie} filter={filter} />
         </div>
-        <div className=" bg-white/5 backdrop-blur-xl shadow-[(0_8px_30px_rgba(0,0,0,0.1)] border border-white/10  p-4 rounded-2xl shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] ">
+        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${darkMode
+            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}>
           <AreaChart
             categories={selected.categories}
             values={selected.values}

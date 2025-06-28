@@ -40,7 +40,7 @@ const Header = ({ open, setOpen, darkMode, setDarkMode }) => {
       ${scrolled
           ? (darkMode
             ? 'ml-2 mt-2 mr-2 md:mt-2 md:mr-2 xl:mt-2 xl:mr-2 bg-white/10 backdrop-blur border-white/10 text-white'
-            : 'ml-2 mt-2 mr-2 md:mt-2 md:mr-2 xl:mt-2 xl:mr-2 bg-[#fff] text-white shadow-md border border-white/10')
+            : 'ml-2 mt-2 mr-2 md:mt-2 md:mr-2 xl:mt-2 xl:mr-2 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all')
           : ''}
     `}
     >

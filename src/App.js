@@ -5,18 +5,21 @@ import { useEffect, useState } from "react";
 import Grid from "./Component/Header/bentogrid";
 import Header from "./Component/Header/header";
 import Sidebar from "./Component/Header/sidebar";
+import TablesPage from "./Component/Table/table";
+import Tables from "./Component/Table/table";
+import Billing from "./Component/Billed/Invoice";
 
 // Dummy Pages
-const Tables = () => (
-  <h1 className="text-white text-3xl font-semibold text-center py-8">
-    Tables Page
-  </h1>
-);
-const Billing = () => (
-  <h1 className="text-white text-3xl font-semibold text-center py-8">
-    Billing Page
-  </h1>
-);
+// const Tables = () => (
+//   <h1 className="text-white text-3xl font-semibold text-center py-8">
+//     Tables Page
+//   </h1>
+// );
+// const Billing = () => (
+//   <h1 className="text-white text-3xl font-semibold text-center py-8">
+//     Billing Page
+//   </h1>
+// );
 const Profile = () => (
   <h1 className="text-white text-3xl font-semibold text-center py-8">
     Profile Page
@@ -58,8 +61,8 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<Grid darkMode={darkMode} />} />
-            <Route path="/tables" element={<Tables />} />
-            <Route path="/billing" element={<Billing />} />
+            <Route path="/tables" element={<Tables darkMode={darkMode}  />} />
+            <Route path="/billing" element={<Billing darkMode={darkMode} />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
