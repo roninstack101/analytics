@@ -27,18 +27,17 @@ export default function Tables({ darkMode }) {
   const getButtonClasses = (isActive, disabled = false) => {
     return `
       flex justify-center items-center px-4 py-2 rounded-lg w-full sm:w-auto transition-all duration-300
-      ${
-        darkMode
-          ? disabled
-            ? "opacity-50 cursor-not-allowed text-gray-400 font-semibold"
-            : isActive
+      ${darkMode
+        ? disabled
+          ? "opacity-50 cursor-not-allowed text-gray-400 font-semibold"
+          : isActive
             ? "bg-purple-700 text-white font-semibold"
             : "text-gray-400 hover:bg-purple-700 hover:text-white font-medium"
-          : disabled
+        : disabled
           ? "opacity-50 cursor-not-allowed text-[#1A237E] font-medium"
           : isActive
-          ? "bg-[rgba(0,103,216,0.8)] text-white font-semibold"
-          : "text-[#1A237E] hover:bg-[rgba(0,103,216,0.8)] hover:text-white font-medium"
+            ? "bg-[rgba(0,103,216,0.8)] text-white font-semibold"
+            : "text-[#1A237E] hover:bg-[rgba(0,103,216,0.8)] hover:text-white font-medium"
       }
     `;
   };
@@ -51,9 +50,8 @@ export default function Tables({ darkMode }) {
           <div className="overflow-x-auto rounded-lg">
             <table className="min-w-full">
               <thead
-                className={`sticky top-0 z-10 backdrop-blur ${
-                  darkMode ? "bg-purple-700 text-white" : "bg-[rgba(0,103,216,0.8)] text-white"
-                }`}
+                className={`sticky top-0 z-10 backdrop-blur ${darkMode ? "bg-purple-700 text-white" : "bg-[rgba(0,103,216,0.8)] text-white"
+                  }`}
               >
                 <tr>
                   <th className={headerCell}>Name</th>
@@ -66,11 +64,10 @@ export default function Tables({ darkMode }) {
                 {paginatedData.map((user, i) => (
                   <tr
                     key={user.id}
-                    className={`transition ${
-                      darkMode
+                    className={`transition ${darkMode
                         ? `${i % 2 === 0 ? "bg-white/10" : "bg-white/5"} hover:bg-white/20`
                         : `${i % 2 === 0 ? "bg-white/40" : "bg-white/60"} hover:bg-white/80`
-                    }`}
+                      }`}
                   >
                     <td className={rowCell}>{user.firstName} {user.lastName}</td>
                     <td className={rowCell}>{user.email}</td>

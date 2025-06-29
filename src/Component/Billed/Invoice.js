@@ -1,95 +1,85 @@
 import React, { useEffect, useState } from "react";
-import { IndianRupee, ShoppingCart, CheckCircle, RotateCcw } from "lucide-react";
+import { IndianRupee, FileText, Loader } from "lucide-react";
 import PieChart from "../Graph/PieChart";
 import BarChart from "../Graph/BarChart";
 
 export default function Billing({ darkMode }) {
-  const [carts, setCarts] = useState([]);
+  const [bills, setBills] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://dummyjson.com/carts")
-      .then(res => res.json())
-      .then(json => setCarts(json.carts))
-      .catch(err => console.error("Failed to fetch carts", err));
+      .then((res) => res.json())
+      .then((data) => {
+        setBills(data.carts.slice(0, 6));
+        setLoading(false);
+      });
   }, []);
 
-  const totalRevenue = carts.reduce((sum, cart) => sum + cart.total, 0);
-  const totalOrders = carts.length;
-  const successfulPayments = Math.floor(totalOrders * 0.85); // Dummy
-  const refundedOrders = totalOrders - successfulPayments;
-
-  const recent = carts.slice(0, 5);
-  const pieData = [40, 30, 20, 10];
+  const total = bills.reduce((a, b) => a + b.total, 0);
+  const pending = 2;
+  const paid = bills.length - pending;
   const months = ["Jan", "Feb", "Mar", "Apr"];
-  const monthTotals = [500, 1200, 800, totalRevenue];
+  const monthlyData = [3000, 4200, 2500, total];
+  const pieData = [50, 30, 20];
 
-  const cardClass = `p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-md transition 
-    ${darkMode ? "text-white" : "text-black bg-white/50"}`;
-  const iconStyle = "w-5 h-5 mr-2";
+  const card = `rounded-2xl p-4 border border-white/10 bg-white/5 backdrop-blur-xl 
+  shadow-md ${darkMode ? "text-white" : "text-black bg-white/50"}`;
+
+  if (loading) return <Loader className="animate-spin mx-auto mt-10" />;
 
   return (
     <div className="ml-4 md:ml-[16.5rem] xl:ml-[19rem] mt-4 mr-4">
-      {/* Cards */}
-      <section className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className={cardClass}>
-          <div className="flex items-center">
-            <IndianRupee className={iconStyle} />
-            <h4 className="text-sm opacity-70">Total Revenue</h4>
+      {/* Summary Cards */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        {[
+          { label: "Total Revenue", value: `₹${total}`, icon: <IndianRupee size={20} /> },
+          { label: "Bills", value: bills.length, icon: <FileText size={20} /> },
+          { label: "Paid", value: paid, icon: <FileText size={20} /> },
+          { label: "Pending", value: pending, icon: <FileText size={20} /> },
+        ].map((item, i) => (
+          <div key={i} className={card}>
+            <div className="flex items-center justify-between">
+              <p className="text-sm">{item.label}</p>
+              {item.icon}
+            </div>
+            <p className="text-xl font-bold mt-2">{item.value}</p>
           </div>
-          <p className="text-xl font-semibold mt-1">₹{totalRevenue}</p>
-        </div>
-
-        <div className={cardClass}>
-          <div className="flex items-center">
-            <ShoppingCart className={iconStyle} />
-            <h4 className="text-sm opacity-70">Total Orders</h4>
-          </div>
-          <p className="text-xl font-semibold mt-1">{totalOrders}</p>
-        </div>
-
-        <div className={cardClass}>
-          <div className="flex items-center">
-            <CheckCircle className={iconStyle} />
-            <h4 className="text-sm opacity-70">Successful Payments</h4>
-          </div>
-          <p className="text-xl font-semibold mt-1">{successfulPayments}</p>
-        </div>
-
-        <div className={cardClass}>
-          <div className="flex items-center">
-            <RotateCcw className={iconStyle} />
-            <h4 className="text-sm opacity-70">Refunded Orders</h4>
-          </div>
-          <p className="text-xl font-semibold mt-1">{refundedOrders}</p>
-        </div>
+        ))}
       </section>
 
-      {/* Table */}
+      {/* Billing Table */}
       <section className="mb-6">
-        <div className={cardClass}>
-          <h2 className="text-lg font-semibold mb-4">Recent Orders</h2>
+        <div className={card}>
+          <h2 className="text-lg font-semibold mb-4">Recent Bills</h2>
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
               <thead className="bg-white/10">
                 <tr>
-                  <th className="px-4 py-2 text-left">Cart ID</th>
-                  <th className="px-4 py-2 text-left">User ID</th>
-                  <th className="px-4 py-2 text-left">Products</th>
-                  <th className="px-4 py-2 text-left">Total</th>
-                  <th className="px-4 py-2 text-left">Discount</th>
+                  <th className="p-2 text-left">Bill ID</th>
+                  <th className="p-2 text-left">Customer</th>
+                  <th className="p-2 text-left">Amount</th>
+                  <th className="p-2 text-left">Status</th>
+                  <th className="p-2 text-left">Date</th>
                 </tr>
               </thead>
               <tbody>
-                {recent.map(c => (
+                {bills.map((bill) => (
                   <tr
-                    key={c.id}
+                    key={bill.id}
                     className="border-t border-white/10 hover:bg-white/10 transition"
                   >
-                    <td className="px-4 py-2">{c.id}</td>
-                    <td className="px-4 py-2">{c.userId}</td>
-                    <td className="px-4 py-2">{c.products.length}</td>
-                    <td className="px-4 py-2">₹{c.total}</td>
-                    <td className="px-4 py-2">₹{c.discountedTotal}</td>
+                    <td className="p-2">#{bill.id}</td>
+                    <td className="p-2">User {bill.userId}</td>
+                    <td className="p-2">₹{bill.total}</td>
+                    <td className="p-2">
+                      {bill.id % 2 === 0 ? (
+                        <span className="text-green-500">Paid</span>
+                      ) : (
+                        <span className="text-yellow-500">Pending</span>
+                      )}
+                    </td>
+                    <td className="p-2">2025-06-{bill.id + 10}</td>
                   </tr>
                 ))}
               </tbody>
@@ -98,14 +88,14 @@ export default function Billing({ darkMode }) {
         </div>
       </section>
 
-      {/* Charts */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className={cardClass}>
-          <h3 className="text-lg font-medium mb-2">Monthly Revenue</h3>
-          <BarChart categories={months} values={monthTotals} />
+      {/* Graphs */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className={card}>
+          <h3 className="text-base font-semibold mb-2">Monthly Revenue</h3>
+          <BarChart categories={months} values={monthlyData} />
         </div>
-        <div className={cardClass}>
-          <h3 className="text-lg font-medium mb-2">Payment Method Share</h3>
+        <div className={card}>
+          <h3 className="text-base font-semibold mb-2">Payment Method</h3>
           <PieChart series={pieData} />
         </div>
       </section>
