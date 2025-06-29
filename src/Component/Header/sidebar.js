@@ -33,7 +33,7 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
           md:translate-x-0 md:left-5
               ${darkMode
             ? "bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+            : "backdrop-blur-xl bg-white/70 md:bg-white/50 xl:bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
           }
         `}
       >

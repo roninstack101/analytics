@@ -81,7 +81,7 @@ export default function Grid({ params, darkMode }) {
         flex items-center justify-between p-4 rounded-2xl border border-white/10 backdrop-blur-xl
         ${darkMode
                 ? "text-white font-[500]  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-                : "text-[rgba(0,103,216,0.8)] font-[500]  bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+                : "text-[#1A237E] font-[500]  bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
               }
       `}
           >

@@ -13,7 +13,9 @@ const menuItems = [
 
 const Header = ({ open, setOpen, darkMode, setDarkMode }) => {
   const location = useLocation();
-  const lightColor = "rgba(0,103,216,0.8)";
+  // const lightColor = "rgba(0,103,216,0.8)";
+  const lightColor = "#1A237E";
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
