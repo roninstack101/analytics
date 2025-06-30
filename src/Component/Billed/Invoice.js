@@ -31,8 +31,8 @@ export default function Billing({ darkMode }) {
   return (
     <div className="ml-4 md:ml-[16.5rem] xl:ml-[19rem] mt-4 mr-4">
       {/* Summary Cards */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        {[
+       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-4 xl:gap-6 mb-6">
+       {[
           { label: "Total Revenue", value: `₹${total}`, icon: <IndianRupee size={20} /> },
           { label: "Bills", value: bills.length, icon: <FileText size={20} /> },
           { label: "Paid", value: paid, icon: <FileText size={20} /> },
@@ -89,14 +89,14 @@ export default function Billing({ darkMode }) {
       </section>
 
       {/* Graphs */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-4">
         <div className={card}>
           <h3 className="text-base font-semibold mb-2">Monthly Revenue</h3>
-          <BarChart categories={months} values={monthlyData} />
+          <BarChart darkMode={darkMode} categories={months} values={monthlyData} />
         </div>
         <div className={card}>
           <h3 className="text-base font-semibold mb-2">Payment Method</h3>
-          <PieChart series={pieData} />
+          <PieChart series={pieData} darkMode={darkMode}/>
         </div>
       </section>
     </div>

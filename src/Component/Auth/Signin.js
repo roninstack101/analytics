@@ -25,7 +25,7 @@ export default function SignIn({ darkMode, setDarkMode }) {
 
       {/* Card */}
       <div
-        className={`w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-3xl px-6 py-12 space-y-6 shadow-xl transition-all ${
+        className={`w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-3xl px-6 py-6 space-y-6 shadow-xl transition-all ${
           darkMode
             ? "bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
             : "bg-white/70 text-gray-900 backdrop-blur-xl shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
@@ -49,13 +49,22 @@ export default function SignIn({ darkMode, setDarkMode }) {
               : "bg-gray-50 border-gray-300"
           }`}
         >
-          <Mail size={20} className="text-indigo-600" />
+          <Mail
+            size={20}
+            className={`${
+              darkMode ? "text-purple-700" : "text-[rgba(0,103,216,0.8)]"
+            }`}
+          />
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-transparent outline-none text-inherit placeholder:text-gray-400 dark:placeholder-white/50"
+            className={`w-full bg-transparent outline-none text-inherit ${
+              darkMode
+                ? "placeholder:text-gray-400 dark:placeholder-white/50"
+                : "placeholder:text-gray-600 dark:placeholder-white/30"
+            }`}
           />
         </div>
 
@@ -67,13 +76,22 @@ export default function SignIn({ darkMode, setDarkMode }) {
               : "bg-gray-50 border-gray-300"
           }`}
         >
-          <Lock size={20} className="text-indigo-600" />
+          <Lock
+            size={20}
+            className={`${
+              darkMode ? "text-purple-700" : "text-[rgba(0,103,216,0.8)]"
+            }`}
+          />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-transparent outline-none text-inherit placeholder:text-gray-400 dark:placeholder-white/50"
+            className={`w-full bg-transparent outline-none text-inherit ${
+              darkMode
+                ? "placeholder:text-gray-400 dark:placeholder-white/50"
+                : "placeholder:text-gray-600 dark:placeholder-white/30"
+            }`}
           />
         </div>
 

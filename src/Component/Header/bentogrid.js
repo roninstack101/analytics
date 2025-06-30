@@ -74,76 +74,81 @@ export default function Grid({ params, darkMode }) {
       </section> */}
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-6">
-        {["Summary 1", "Summary 2", "Summary 3", "Summary 4"].map((label, index) => (
-          <div
-            key={index}
-            className={`
+        {["Summary 1", "Summary 2", "Summary 3", "Summary 4"].map(
+          (label, index) => (
+            <div
+              key={index}
+              className={`
         flex items-center justify-between p-4 rounded-2xl border border-white/10 backdrop-blur-xl
-        ${darkMode
-                ? "text-white font-[500]  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-                : "text-[#1A237E] font-[500]  bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-              }
+        ${
+          darkMode
+            ? "text-white font-[500]  bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+            : "text-[#1A237E] font-[500]  bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+        }
       `}
-          >
-            {label}
-          </div>
-        ))}
+            >
+              {label}
+            </div>
+          )
+        )}
       </section>
 
-
-      <section className='grid grid-cols-1 mb-6'>
-        <div className={` border border-white/10 p-4 rounded-2xl 
-          ${darkMode
-            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-          } `}>
-          <YearlyLineChart />
-        </div>
-      </section>
-
-      <section className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6  mb-6">
-        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
-         ${darkMode
-            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-          } `}>
-          <BarChart
-            categories={selected.categories}
-            values={selected.values}
-            filter={filter}
-          />
-        </div>
-        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
-         ${darkMode
-            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-          } `}>
-          <LineChart
-            categories={selected.categories}
-            values={selected.values}
-            filter={filter}
-          />
+      <section className="grid grid-cols-1 mb-6">
+        <div
+          className={` border border-white/10 p-4 rounded-2xl 
+          ${
+            darkMode
+              ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+              : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+          } `}
+        >
+          <YearlyLineChart darkMode={darkMode} />
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6 mb-6">
-        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
-         ${darkMode
-            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-          } `}>
-          <PieChart series={selected.pie} filter={filter} />
+      <section className="grid grid-cols-1  md:grid-cols-1 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6  mb-6">
+        <div
+          className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${
+           darkMode
+             ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+             : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+         } `}
+        >
+          <BarChart darkMode={darkMode} />
         </div>
-        <div className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
-         ${darkMode
-            ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
-          } `}>
-          <AreaChart
-            categories={selected.categories}
-            values={selected.values}
-            filter={filter}
-          />
+        <div
+          className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${
+           darkMode
+             ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+             : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+         } `}
+        >
+          <LineChart darkMode={darkMode} />
+        </div>
+      </section>
+
+      <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-6 mb-6">
+        <div
+          className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${
+           darkMode
+             ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+             : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+         } `}
+        >
+          <PieChart darkMode={darkMode} />
+        </div>
+        <div
+          className={`bg-white/5 backdrop-blur-xl border border-white/10  p-4 rounded-2xl
+         ${
+           darkMode
+             ? "text-white bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
+             : "bg-white/10 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
+         } `}
+        >
+          <AreaChart darkMode={darkMode} />
         </div>
       </section>
     </div>
