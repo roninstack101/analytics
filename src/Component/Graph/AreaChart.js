@@ -27,6 +27,18 @@ const AreaChart = ({ darkMode }) => {
       type: "area",
       background: "transparent",
       foreColor: darkMode ? "#fff" : "#333",
+      toolbar: {
+        show: true,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        },
+      },
     },
     xaxis: {
       categories: chartData.categories,
@@ -75,12 +87,12 @@ const AreaChart = ({ darkMode }) => {
   const series = [
     {
       name: "Revenue",
-      data: Array.isArray(chartData.values) ? chartData.values : [], 
+      data: Array.isArray(chartData.values) ? chartData.values : [],
     },
   ];
 
   return (
-   <div className="flex flex-col-reverse md:flex-col xl:flex-col gap-4">
+    <div className="flex flex-col-reverse md:flex-col xl:flex-col gap-4">
       <ChartFilterButtons
         activeFilter={filter}
         onChange={setFilter}

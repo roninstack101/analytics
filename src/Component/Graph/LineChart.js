@@ -27,6 +27,18 @@ const LineChart = ({ darkMode }) => {
       id: "line-chart",
       background: "transparent",
       foreColor: darkMode ? "#ffffff" : "#333333",
+      toolbar: {
+        show: true,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        },
+      },
     },
     xaxis: {
       categories: chartData.categories,
