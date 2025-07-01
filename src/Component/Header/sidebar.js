@@ -26,8 +26,8 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
 
       <aside
         className={`
-          fixed top-5 left-0 z-40 w-full max-w-[230px] xl:max-w-[264px] h-[calc(100vh-40px)]
-          border border-white/10 text-white p-6 rounded-2xl font-[Poppins] flex flex-col
+          fixed top-2 left-0 z-40 w-full max-w-[230px] xl:max-w-[264px] h-[calc(100vh-20px)]
+          border border-white/10 text-white p-6 xl:p-4 md:p-3 rounded-2xl font-[Poppins] flex flex-col
           transition-all duration-300 ease-in-out
           ${open ? "translate-x-[20px]" : "-translate-x-full"}
           md:translate-x-0 md:left-5
@@ -39,13 +39,13 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
       >
         <h2
           className={`
-          text-center font-bold tracking-wide mb-8 text-[clamp(1rem,2vw,1.5rem)]
+          text-center font-bold tracking-wide mt-2 mb-4 text-[clamp(1rem,2vw,1.5rem)]
          ${darkMode ? "text-white" : "text-[#1A237E]"}`}
         >
           SIDEBAR BOARD
         </h2>
 
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 p-2">
           {menuItems.map(({ name, icon: Icon, path }, index) => {
             const isActive = currentPath === path;
 

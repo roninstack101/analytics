@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Grid from "./Component/Header/bentogrid";
@@ -13,14 +18,12 @@ import SignUp from "./Component/Auth/SignUp";
 import SignIn from "./Component/Auth/Signin";
 import VerifyOTP from "./Component/Auth/VerifyOtp";
 
-
 function App() {
   const [open, setOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
-  const isAuthenticated = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    return user && user.verified;
-  };
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved !== null ? JSON.parse(saved) : true;
+  });
 
   useEffect(() => {
     document.body.style.background = darkMode
@@ -28,6 +31,9 @@ function App() {
       : "url('/windows 11.jpg') no-repeat top fixed";
     document.body.style.backgroundSize = "cover";
     document.body.style.overflow = open ? "hidden" : "auto";
+
+    // Save to localStorage
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode, open]);
 
   return (
@@ -46,9 +52,20 @@ function App() {
             <Route path="/tables" element={<Tables darkMode={darkMode} />} />
             <Route path="/billing" element={<Billing darkMode={darkMode} />} />
             <Route path="/profile" element={<Profile darkMode={darkMode} />} />
-            <Route path="/signin" element={<SignIn darkMode={darkMode} setDarkMode={setDarkMode} />} />
-            <Route path="/signup" element={<SignUp darkMode={darkMode} setDarkMode={setDarkMode} />} />
-            <Route path="/verify" element={<VerifyOTP darkMode={darkMode} setDarkMode={setDarkMode} />} />
+            <Route
+              path="/signin"
+              element={<SignIn darkMode={darkMode} setDarkMode={setDarkMode} />}
+            />
+            <Route
+              path="/signup"
+              element={<SignUp darkMode={darkMode} setDarkMode={setDarkMode} />}
+            />
+            <Route
+              path="/verify"
+              element={
+                <VerifyOTP darkMode={darkMode} setDarkMode={setDarkMode} />
+              }
+            />
           </Routes>
         </div>
       </div>

@@ -47,7 +47,7 @@ export default function Tables({ darkMode }) {
       <section className="grid grid-cols-1 gap-6 mb-6">
         <div className={containerClasses}>
           <h2 className="text-2xl font-semibold mb-6 text-center">Customer Directory</h2>
-          <div className="overflow-x-auto rounded-lg">
+          <div className="overflow-x-auto rounded-lg scrollbar-custom">
             <table className="min-w-full">
               <thead
                 className={`sticky top-0 z-10 backdrop-blur ${darkMode ? "bg-purple-700 text-white" : "bg-[rgba(0,103,216,0.8)] text-white"

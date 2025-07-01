@@ -39,10 +39,11 @@ const Header = ({ open, setOpen, darkMode, setDarkMode }) => {
       px-4 py-3 font-[Poppins] 
       flex items-center justify-between
       transition-all duration-300
+      xl:mt-4 md:mt-3
       ${scrolled
           ? (darkMode
-            ? 'ml-2 mt-2 mr-2 md:mt-2 md:mr-2 xl:mt-2 xl:mr-2 bg-white/10 backdrop-blur border-white/10 text-white'
-            : 'ml-2 mt-2 mr-2 md:mt-2 md:mr-2 xl:mt-2 xl:mr-2 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all')
+            ? 'ml-2 mt-2 mr-2 md:mt-3 md:mr-2 xl:mt-4 xl:mr-2 bg-white/10 backdrop-blur border-white/10 text-white'
+            : 'ml-2 mt-2 mr-2 md:mt-3 md:mr-2 xl:mt-4 xl:mr-2 backdrop-blur-xl bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all')
           : ''}
     `}
     >

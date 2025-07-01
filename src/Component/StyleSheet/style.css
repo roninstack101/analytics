@@ -1,3 +1,7 @@
+
+html {
+  scroll-behavior: smooth;
+}
 /* ApexCharts menu styling */
 .apexcharts-menu {
   background-color: #ffffff !important; /* menu bg white */
@@ -18,3 +22,32 @@
 }
 
 
+/* SCROLL BAR */
+
+/* App.css ya global stylesheet me daalo */
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(136, 136, 136, 0.3), rgba(0, 0, 0, 0.4));
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  transition: background 0.3s ease;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(136, 136, 136, 0.5), rgba(0, 0, 0, 0.6));
+}
+
+/* Dark mode */
+body.dark .scrollbar-custom::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(180, 180, 180, 0.4));
+}
+
+body.dark .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(180, 180, 180, 0.6));
+}
