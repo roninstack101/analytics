@@ -26,7 +26,7 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
 
       <aside
         className={`
-          fixed top-2 left-0 z-40 w-full max-w-[230px] xl:max-w-[264px] h-[calc(100vh-20px)]
+          fixed top-2 left-[-5px] md:left-5 xl:left-5 z-40 w-full max-w-[230px] xl:max-w-[264px] h-[calc(100vh-20px)]
           border border-white/10 text-white p-6 xl:p-4 md:p-3 rounded-2xl font-[Poppins] flex flex-col
           transition-all duration-300 ease-in-out
           ${open ? "translate-x-[20px]" : "-translate-x-full"}
