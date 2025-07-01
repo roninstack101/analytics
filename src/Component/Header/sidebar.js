@@ -33,16 +33,16 @@ const Sidebar = ({ open, setOpen, darkMode }) => {
           md:translate-x-0 md:left-5
               ${darkMode
             ? "bg-white/5 text-white shadow-[0_8px_30px_rgba(0,0,0,0.1)] backdrop-blur-xl"
-            : "shadow-[0_4px_8px_rgba(78,76,76,0.3),_0_6px_20px_rgba(255,255,255,0.35)] backdrop-blur-xl"
+            : "backdrop-blur-xl bg-white/70 md:bg-white/50 xl:bg-white/50 shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all"
           }
         `}
       >
         <h2
           className={`
-          text-center font-bold tracking-wide mb-6 text-[clamp(1.2rem,2vw,2rem)]
-         ${darkMode ? "text-white" : "text-[rgba(0,103,216,0.8)]"}`}
+          text-center font-bold tracking-wide mb-8 text-[clamp(1rem,2vw,1.5rem)]
+         ${darkMode ? "text-white" : "text-[#1A237E]"}`}
         >
-          BOARD
+          SIDEBAR BOARD
         </h2>
 
         <ul className="flex flex-col gap-2">
